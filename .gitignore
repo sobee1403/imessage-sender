@@ -24,6 +24,7 @@ wheels/
 # Virtual Environment
 venv/
 ENV/
+myenv/
 
 # Google API credentials
 credentials.json
