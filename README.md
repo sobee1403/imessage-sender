@@ -16,14 +16,15 @@ Google Sheets에서 데이터를 읽어와 미제출자에게 자동으로 iMess
 ## 설치 방법
 1. 저장소 클론
 bash
-git clone https://github.com/[username]/imessage-sender.git
+git clone https://github.com/sobee1403/imessage-sender.git
 cd imessage-sender
 
 2. 가상환경 생성 및 활성화
 
 bash
-git clone https://github.com/[username]/imessage-sender.git
+git clone https://github.com/sobee1403/imessage-sender.git
 cd imessage-sender
+
 활성화
 bash
 python3 -m venv venv
@@ -61,6 +62,66 @@ python3 fetch_contacts.py
 
 ## 라이선스
 이 프로젝트는 MIT 라이선스를 따릅니다.
+
+### send_message.scpt
+AppleScript 파일로, iMessage 발송을 위한 스크립트입니다.
+- Messages 앱 제어
+- 지정된 전화번호로 메시지 발송
+- 발송 상태 확인
+
+## 필요 조건
+- Python 3.x
+- macOS (iMessage 기능 사용을 위해)
+- Google Cloud Console 프로젝트 및 인증 설정
+- 활성화된 iMessage 계정
+
+
+#### 함수 목록
+1. `get_current_week_sheet_name()`
+   ```python
+   def get_current_week_sheet_name():
+       """현재 날짜를 기준으로 시트 이름을 생성합니다.
+       Returns:
+           str: "1월 1주차"와 같은 형식의 시트 이름
+       """
+   ```
+
+2. `get_google_sheet_data()`
+   ```python
+   def get_google_sheet_data():
+       """Google Sheets에서 데이터를 가져와 처리합니다.
+       Returns:
+           list: [[이름, 전화번호]] 형식의 메시지 발송 대상 리스트
+       """
+   ```
+
+3. `send_imessage(phone_number, message)`
+   ```python
+   def send_imessage(phone_number, message):
+       """AppleScript를 사용하여 iMessage를 발송합니다.
+       Args:
+           phone_number (str): 수신자 전화번호
+           message (str): 발송할 메시지 내용
+       Returns:
+           bool: 발송 성공 여부
+       """
+   ```
+
+4. `get_weekly_message(employee_name)`
+   ```python
+   def get_weekly_message(employee_name):
+       """주간 보고 미제출 알림 메시지를 생성합니다.
+       Args:
+           employee_name (str): 직원 이름
+       Returns:
+           str: 생성된 메시지
+       """
+   ```
+
+### send_message.scpt
+AppleScript를 사용하여 실제 iMessage를 발송하는 스크립트입니다.
+
+#### 스크립트 구조
 
 
 
