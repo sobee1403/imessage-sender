@@ -6,9 +6,9 @@ import os.path
 import pickle
 from datetime import datetime
 import subprocess
+from config import SPREADSHEET_ID
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
-SPREADSHEET_ID = '1gHsG-BbUmDZah1yR3uvhlu-rDQa8_01vKOSCbWuK8Uk'
 
 def get_current_week_sheet_name():
     now = datetime.now()

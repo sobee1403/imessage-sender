@@ -39,3 +39,6 @@ token.pickle
 
 # Logs
 *.log 
+
+# Configuration files
+config.py 
